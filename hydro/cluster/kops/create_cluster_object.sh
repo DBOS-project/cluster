@@ -39,7 +39,7 @@ kops create cluster \
   --zones us-east-1a \
   --ssh-public-key ${SSH_KEY}.pub \
   --networking kubenet \
-  --name ${HYDRO_CLUSTER_NAME}  > /dev/null 2>&1
+  --name ${HYDRO_CLUSTER_NAME}  2>&1
 
 # delete default instance group that we won't use
 kops delete ig nodes --name ${HYDRO_CLUSTER_NAME} --yes > /dev/null 2>&1
