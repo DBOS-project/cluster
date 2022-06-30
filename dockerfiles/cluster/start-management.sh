@@ -68,5 +68,8 @@ git submodule update
 # be able to run its scripts.
 cd $HYDRO_HOME/cluster
 export PYTHONPATH=$PYTHONPATH:$(pwd)
-python3.6 hydro/management/k8s_server.py &
-python3.6 hydro/management/management_server.py $IP
+python3.6 hydro/management/k8s_server.py > /k8s_server_log.txt 2>&1 &
+python3.6 hydro/management/management_server.py $IP > /management_server_log.txt 2>&1 &
+
+# Sleep forever.
+while true; do sleep 30; done;

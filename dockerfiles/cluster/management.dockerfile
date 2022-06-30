@@ -13,9 +13,9 @@
 #  limitations under the License.
 
 FROM hydroproject/base:latest
-MAINTAINER Vikram Sreekanti <vsreekanti@gmail.com> version: 0.1
+# MAINTAINER Vikram Sreekanti <vsreekanti@gmail.com> version: 0.1
 
-ARG repo_org=hydro-project
+ARG repo_org=DBOS-project
 ARG source_branch=master
 ARG build_branch=docker-build
 
@@ -41,7 +41,7 @@ RUN mkdir $HOME/.kube
 # it's done before we get to this point.
 WORKDIR $HYDRO_HOME/cluster
 RUN git remote remove origin 
-RUN git remote add origin https://github.com/$repo_org/cluster
+RUN git remote add origin https://github.com/$repo_org/hydro-cluster
 RUN git fetch origin && git checkout -b $build_branch origin/$source_branch
 WORKDIR /
 

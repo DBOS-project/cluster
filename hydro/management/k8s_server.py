@@ -55,8 +55,9 @@ def run():
             num = int(args[1])
             logging.info('Adding %d new %s node(s)...' % (num, ntype))
 
-            add_nodes(client, apps_client, cfile, [ntype], [num],
-                      prefix=prefix)
+            #add_nodes(client, apps_client, cfile, [ntype], [num],
+            #          prefix=prefix)
+            logging.info('DBOS skip adding new nodes.')
             logging.info('Successfully added %d %s node(s).' % (num, ntype))
 
         if node_remove_socket in socks and socks[node_remove_socket] == \
@@ -67,7 +68,8 @@ def run():
             ntype = args[0]
             ip = args[1]
 
-            remove_node(ip, ntype)
+            #remove_node(ip, ntype)
+            logging.info('DBOS skip removing node.')
             logging.info('Successfully removed node %s.' % (ip))
 
 
