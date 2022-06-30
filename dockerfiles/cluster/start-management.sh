@@ -43,13 +43,14 @@ cd $HYDRO_HOME/cluster
 if [[ -z "$REPO_ORG" ]]; then
   REPO_ORG="hydro-project"
 fi
+DBOS_REPO_ORG="DBOS-project"
 
 if [[ -z "$REPO_BRANCH" ]]; then
   REPO_BRANCH="master"
 fi
 
 git remote remove origin
-git remote add origin https://github.com/$REPO_ORG/cluster
+git remote add origin https://github.com/$DBOS_REPO_ORG/cluster
 while ! (git fetch -p origin)
 do
   echo "git fetch failed, retrying"
