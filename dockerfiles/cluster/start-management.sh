@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 #  Copyright 2019 U.C. Berkeley RISE Lab
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,6 +26,8 @@ echo "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key =
 mkdir -p ~/.ssh
 
 cd $HYDRO_HOME/anna
+
+ANNA_REPO_ORG="hydro-project"
 git remote remove origin
 git remote add origin https://github.com/$ANNA_REPO_ORG/anna
 while ! (git fetch -p origin)
