@@ -41,7 +41,7 @@ RUN mkdir $HOME/.kube
 # it's done before we get to this point.
 WORKDIR $HYDRO_HOME/cluster
 RUN git remote remove origin 
-RUN git remote add origin https://github.com/$repo_org/hydro-cluster
+RUN git remote add origin https://github.com/$repo_org/cluster
 RUN git fetch origin && git checkout -b $build_branch origin/$source_branch
 WORKDIR /
 
