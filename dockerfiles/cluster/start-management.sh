@@ -28,6 +28,7 @@ mkdir -p ~/.ssh
 cd $HYDRO_HOME/anna
 
 ANNA_REPO_ORG="hydro-project"
+ANNA_REPO_BRANCH="master"
 git remote remove origin
 git remote add origin https://github.com/$ANNA_REPO_ORG/anna
 while ! (git fetch -p origin)
