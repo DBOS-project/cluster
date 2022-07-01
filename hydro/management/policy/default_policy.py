@@ -91,19 +91,18 @@ class DefaultHydroPolicy(BaseHydroPolicy):
                                                        avg_latency, thruput,
                                                        num_replicas))
 
-            if call_count > thruput * .7:
+            if call_count > 0:
                 # First, we compare the throughput of the system for a function
                 # to the number of calls for it. We add replicas if the number
                 # of calls exceeds a percentage of the throughput.
-                increase = (math.ceil(call_count / (thruput * .7))
-                            * num_replicas) - num_replicas + 1
+                increase = 1
                 logging.info(('Function %s: %d calls in recent period exceeds'
                               + ' threshold. Adding %d replicas.') %
                              (fname, call_count, increase))
                 self.scaler.replicate_function(fname, increase,
                                                self.function_locations,
                                                cpu_executors, gpu_executors)
-            elif call_count < thruput * .1:
+            elif call_count < 0:
                 pass
                 # Similarly, we check to see if the call count is significantly
                 # below the achieved throughput -- we then remove replicas.
@@ -170,6 +169,7 @@ class DefaultHydroPolicy(BaseHydroPolicy):
         logging.info('Average executor utilization: %.4f' % (avg_utilization))
         logging.info('Average pinned function count: %.2f' %
                      (avg_pinned_count))
+        return
 
         # We check to see if the average utilization or number of pinned
         # functions exceeds the policy's thresholds and add machines to the
