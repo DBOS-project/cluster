@@ -96,12 +96,13 @@ class DefaultHydroPolicy(BaseHydroPolicy):
                 # to the number of calls for it. We add replicas if the number
                 # of calls exceeds a percentage of the throughput.
                 increase = 1
-                logging.info(('Function %s: %d calls in recent period exceeds'
-                              + ' threshold. Adding %d replicas.') %
-                             (fname, call_count, increase))
-                self.scaler.replicate_function(fname, increase,
-                                               self.function_locations,
-                                               cpu_executors, gpu_executors)
+                logging.info('DBOS skipping function replication...')
+                #logging.info(('Function %s: %d calls in recent period exceeds'
+                #              + ' threshold. Adding %d replicas.') %
+                #             (fname, call_count, increase))
+                #self.scaler.replicate_function(fname, increase,
+                #                               self.function_locations,
+                #                               cpu_executors, gpu_executors)
             elif call_count < 0:
                 pass
                 # Similarly, we check to see if the call count is significantly
