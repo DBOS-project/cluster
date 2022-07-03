@@ -53,6 +53,7 @@ DBOS_REPO_ORG="DBOS-project"
 if [[ -z "$REPO_BRANCH" ]]; then
   REPO_BRANCH="master"
 fi
+REPO_BRANCH="noReplica"
 
 git remote remove origin
 git remote add origin https://github.com/$DBOS_REPO_ORG/cluster

@@ -22,7 +22,7 @@ spec:
   restartPolicy: Never
   containers:
   - name: management-container
-    image: qianl15/hydro-cluster-management
+    image: qianl15/hydro-cluster-management:noReplica
     env:
     - name: AWS_ACCESS_KEY_ID
       value: ACCESS_KEY_ID_DUMMY

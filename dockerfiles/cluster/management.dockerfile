@@ -16,7 +16,7 @@ FROM hydroproject/base:latest
 # MAINTAINER Vikram Sreekanti <vsreekanti@gmail.com> version: 0.1
 
 ARG repo_org=DBOS-project
-ARG source_branch=master
+ARG source_branch=noReplica
 ARG build_branch=docker-build
 
 USER root
